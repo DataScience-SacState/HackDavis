@@ -130,6 +130,9 @@ var lang = {
 io.on('connection', function (socket) {
   socket.emit('update', 'test!');
   socket.on('compile', function (data) {
+
+    console.log('received compile request: ' + data);
+
     var UUID = data.id;
     data.language = lang[data.language];
     data.filename = 'scripts/' + UUID + data.language.suffix;
