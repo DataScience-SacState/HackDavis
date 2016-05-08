@@ -22,35 +22,41 @@
 
 
     socket.on('update', function (data) {
+        console.log(data);
         if (data.type == "clear") {
             // Clear Terminal
-        } else if (data.type == "msg") {
+        } else if (data.type == "stdout") {
             // Add this to the Terminal
             console.log(data.body);
+            $('#out').append(data.body);
         }
     });
 
     function listenTo(runId) {
         socket.on(runId, function (data) {
+            console.log(data);
             if (data.type == "clear") {
                 // Clear Terminal
-            } else if (data.type == "msg") {
+            } else if (data.type == "stdout") {
                 // Add this to the Terminal
                 console.log(data.body);
+                $('#out').append(data.body);
             }
         });
 
     }//*/
 
+    $('#out').append('test');
+    //$('#out').appendData('test2');
 
-
+/*
     function doPoll(){
         $.get('/out/test2.out', function(data) {
             $("#out").text(data);
             setTimeout(doPoll,5000);
         });
     }
-    doPoll();
+    doPoll();*/
 
 
 

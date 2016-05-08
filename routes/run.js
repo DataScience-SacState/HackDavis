@@ -132,7 +132,10 @@ io.on('connection', function (socket) {
 
         var child = spawn(cmd, arg);
         child.stdout.on('data', function (chunk) {
-          socket.emit(UUID, {type: "msg", body: chunk.toString('utf8')});
+          socket.emit(UUID, {type: "stdout", body: chunk.toString('utf8')});
+        });
+        child.stderr.on('data', function (chunk) {
+          socket.emit(UUID, {type: "stderr", body: chunk.toString('utf8')});
         });
       }
     });
