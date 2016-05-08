@@ -17,8 +17,18 @@
     </div>
 
 <script>
-/*    var URL_SERVER = 'https://localhost:8000';
+    var URL_SERVER = 'https://localhost:4000';
     var socket = io.connect(URL_SERVER);
+
+
+    socket.on('update', function (data) {
+        if (data.type == "clear") {
+            // Clear Terminal
+        } else if (data.type == "msg") {
+            // Add this to the Terminal
+            console.log(data.body);
+        }
+    });
 
     function listenTo(runId) {
         socket.on(runId, function (data) {
@@ -29,7 +39,8 @@
                 console.log(data.body);
             }
         });
-    }*/
+
+    }//*/
 
 
 

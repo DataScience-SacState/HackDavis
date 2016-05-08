@@ -13,13 +13,23 @@ var options = {
   cert: fs.readFileSync('./file.crt'),
   ca: fs.readFileSync('./csr.pem')
 };
-var serverPort = 8000;
+var serverPort = 4000;
 
 var server = https.createServer(options, app);
 var io = require('socket.io')(server);
 
 server.listen(serverPort, function() {
   console.log('server up and running at %s port', serverPort);
+});
+
+app.use(express.static('public'));
+app.get('/', function (req, res) {
+
+  if (req.query && req.query.id)
+    res.send(fs.readFileSync('./public/out/'+req.query.id+'.out'));
+
+  res.header('Content-type', 'text/html');
+  return res.end('<h1>Hello, Secure World!</h1>');
 });
 
 var lang = {
@@ -110,7 +120,7 @@ io.on('connection', function (socket) {
     data.language = lang[data.language];
     data.filename = 'scripts/' + UUID + data.language.suffix;
     //fs.mkdirSync('scripts');
-    fs.appendFile(data.filename, data.input, function (err) {
+    fs.writeFile(data.filename, data.input, function (err) {
       if (err) throw err;
       console.log('The data was appended to file!');
 
@@ -140,8 +150,8 @@ router.get('/', function(req, res, next) {
   res.send("k");
 });
 
-router.post('/', function(req, res){
-  if (req.body.id && req.body.language && req.body.input) {
+app.post('/run', function(req, res){
+  if (req.body && req.body.id && req.body.language && req.body.input) {
     var data = req.body;
 
     var UUID = data.id;
