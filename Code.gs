@@ -1,134 +1,134 @@
     var syntaxi = {R:[
-    {
-    regex: /\b(if|else)\b/g,
-    color: "#FF0000"
-    },
-    {
-    regex: /\brepeat\b/g,
-    color: "#FF9900"
-    },
-    {
-    regex: /\b(while|for)\b/g,
-    color: "#FFE500"
-    },
-    {
-    regex: /\bfunction\b/g,
-    color: "#CCFF00"
-    },
-    {
-    regex: /\bin\b/g,
-    color: "#33FF00"
-    },
-    {
-    regex: /\bnext\b/g,
-    color: "#00FF19"
-    },
-    {
-    regex: /\bbreak\b/g,
-    color: "#00FF66"
-    },
-    {
-    regex: /\b(TRUE|FALSE)\b/g,
-    color: "#00FFB2"
-    },
-    {
-    regex: /\b(NULL|Inf|NaN\NA\NA_integer|NA_real|NA_complex|NA_character)\b/g,
-    color: "#00B3FF"
-    },
+		{
+		regex: /\b(if|else)\b/g,
+		color: "#FF0000"
+		},
+		{
+		regex: /\brepeat\b/g,
+		color: "#FF9900"
+		},
+		{
+		regex: /\b(while|for)\b/g,
+		color: "#FFE500"
+		},
+		{
+		regex: /\bfunction\b/g,
+		color: "#CCFF00"
+		},
+		{
+		regex: /\bin\b/g,
+		color: "#33FF00"
+		},
+		{
+		regex: /\bnext\b/g,
+		color: "#00FF19"
+		},
+		{
+		regex: /\bbreak\b/g,
+		color: "#00FF66"
+		},
+		{
+		regex: /\b(TRUE|FALSE)\b/g,
+		color: "#00FFB2"
+		},
+		{
+		regex: /\b(NULL|Inf|NaN\NA\NA_integer|NA_real|NA_complex|NA_character)\b/g,
+		color: "#00B3FF"
+		},
         {
         regex: /\breturn\b/g,
-    color: "#FF008B"
+		color: "#FF008B"
         }
 ],
 
     JavaScript : [
 
-  {
-    regex: /\b(if|else|return)\b/g,
-    color: "#FF5A55"
-    },
+	{
+		regex: /\b(if|else|return)\b/g,
+		color: "#FF5A55"
+		},
 {
-    regex: /\b(\+\-|%|\/|^|&|\|)\b/g,
-    color: "#D0FDD3"
-    },
-    {
-    regex: /"(?:[^"\\\n\r]|\\.)*"/g,
-    color: "#9BD066"
-    },
-    {
-    regex: /’(?:[^’\\\n\r]|\\.)*’/g,
-    color: "#9BD066"
-    },
-    {
-    regex: /\b(var|function)\b/g,
-    color: "#FFA3A1"
-    },
-    {
-    regex: /\b(while|for|do|continue|break)\b/g,
-    color: "#A5A9F2"
-    },
-    {
-    regex: /\b(:|\?|in)\b/g,
-    color: "#7D82E5"
-    },
-    {
-    regex: /\b(true|false)\b/g,
-    color: "#C247CF"
-    },
-    {
-    regex: /\bnull\b/g,
-    color: "#D76CE2"
-    },
-    {
-    regex: /(\/\*((?!\*\/).|\n|\r)*\*\/)|(\/\/.*)/g,
-    color: "#2CD236"
-    }
+		regex: /\b(\+\-|%|\/|^|&|\|)\b/g,
+		color: "#D0FDD3"
+		},
+		{
+		regex: /"(?:[^"\\\n\r]|\\.)*"/g,
+		color: "#9BD066"
+		},
+		{
+		regex: /'(?:[^'\\\n\r]|\\.)*'/g,
+		color: "#9BD066"
+		},
+		{
+		regex: /\b(var|function)\b/g,
+		color: "#FFA3A1"
+		},
+		{
+		regex: /\b(while|for|do|continue|break)\b/g,
+		color: "#A5A9F2"
+		},
+		{
+		regex: /\b(:|\?|in)\b/g,
+		color: "#7D82E5"
+		},
+		{
+		regex: /\b(true|false)\b/g,
+		color: "#C247CF"
+		},
+		{
+		regex: /\bnull\b/g,
+		color: "#D76CE2"
+		},
+		{
+		regex: /(\/\*((?!\*\/).|\n|\r)*\*\/)|(\/\/.*)/g,
+		color: "#2CD236"
+		}
 ],
     Java : [
-    {
-    regex: /\b(if|else|return)\b/g,
-    color: "#FF5A55"
-    },
-{
-    regex: /\b(\+\-|%|\/|^|&)\b/g,
-    color: "#D0FDD3"
-    },
-    {
-    regex: /"(?:[^"\\\n\r]|\\.)*"/g,
-    color: "#9BD066"
-    },
-    {
-    regex: /’(?:[^’\\\n\r]|\\.)’/g,
-    color: "#9BD066"
-    },
-    {
-    regex: /\b(public|private|protected|default|static|dynamic|native|goto|void|class|enum|interface|extends|implements|import|package)\b/g,
-    color: "#FFA3A1"
-    },
-    {
-    regex: /\b(while|for|do|continue|break)\b/g,
-    color: "#A5A9F2"
-    },
-    {
-    regex: /\b(:|\?)\b/g,
-    color: "#7D82E5"
-    },
-    {
-    regex: /\b(true|false)\b/g,
-    color: "#C247CF"
-    },
-    {
-    regex: /\bnull\b/g,
-    color: "#D76CE2"
-    },
-    {
-    regex: /\b(int|long|short|boolean|byte)\b/g,
-    color: "#E899F0"
-    },
-    {
-    regex: /(\/\*((?!\*\/).|\n|\r)*\*\/)|(\/\/.*)/g,
-    color: "#2CD236"
-    }
+		{
+		regex: /\b(if|else|return)\b/g,
+		color: "#FF5A55"
+		},
+        {
+		regex: /\b(\+\-|%|\/|^|&)\b/g,
+		color: "#D0FDD3"
+		},
+		{
+		regex: /"(?:[^"\\\n\r]|\\.)*"/g,
+		color: "#9BD066"
+		},
+		{
+		regex: /'(?:[^'\\\n\r]|\\.)'/g,
+		color: "#9BD066"
+		},
+		{
+		regex: /\b(public|private|protected|default|static|dynamic|native|goto|void|class|enum|interface|extends|implements|import|package)\b/g,
+		color: "#FFA3A1"
+		},
+		{
+		regex: /\b(while|for|do|continue|break)\b/g,
+		color: "#A5A9F2"
+		},
+		{
+		regex: /\b(:|\?)\b/g,
+		color: "#7D82E5"
+		},
+		{
+		regex: /\b(true|false)\b/g,
+		color: "#C247CF"
+		},
+		{
+		regex: /\bnull\b/g,
+		color: "#D76CE2"
+		},
+		{
+		regex: /\b(int|long|short|boolean|byte)\b/g,
+		color: "#E899F0"
+		},
+		{
+		regex: /(\/\*((?!\*\/).|\n|\r)*\*\/)|(\/\/.*)/g,
+		color: "#2CD236"
+		}
     ]
   
   }
@@ -150,6 +150,27 @@ function onOpen(e) {
   var backGround = {};
   backGround[DocumentApp.Attribute.BACKGROUND_COLOR] = '#333333';
   DocumentApp.getActiveDocument().getBody().setAttributes(backGround);
+}
+
+function askJavaClass(){
+  var ui = DocumentApp.getUi();
+  var result = ui.prompt(
+    "What classe's main are you running?",
+    ui.ButtonSet.OK_CANCEL);
+  
+  var button = result.getSelectedButton();
+  var text = result.getResponseText();
+  if (button == ui.Button.OK) {
+    // User clicked "OK".
+    return text;
+  } else if (button == ui.Button.CANCEL) {
+    // User clicked "Cancel".
+    return -1;
+  } else if (button == ui.Button.CLOSE) {
+    // User clicked X in the title bar.
+    return -1;
+  }
+  
 }
 /*
 function changeActiveDocument(){
