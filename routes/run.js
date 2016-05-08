@@ -119,7 +119,7 @@ var lang = {
           return 'java';
         },
         arg: function (params) {
-          return ['scripts/' + (params.javaClass || params.id)];
+          return ['-cp', 'scripts', (params.javaClass || params.id)];
         }
       }
     ],
