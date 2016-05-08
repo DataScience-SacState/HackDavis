@@ -89,6 +89,20 @@ var lang = {
     ],
     suffix: '.r'
   },
+  Ruby: {
+    name: 'Ruby',
+    cmds: [
+      {
+        cmd: function (params) {
+          return 'ruby';
+        },
+        arg: function (params) {
+          return [params.filename];
+        }
+      }
+    ],
+    suffix: '.rb'
+  },
   Java: {
     name: 'Java',
     cmds: [
@@ -105,7 +119,7 @@ var lang = {
           return 'java';
         },
         arg: function (params) {
-          return [params.filename.substring(0, params.filename.length - 5)];
+          return [params.className || params.filename.substring(0, params.filename.length - 5)];
         }
       }
     ],
