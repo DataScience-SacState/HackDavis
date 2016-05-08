@@ -38,7 +38,7 @@ var lang = {
     cmds: [
       {
         cmd: function (params) {
-          return 'node';
+          return 'nodejs';
         },
         arg: function (params) {
           return [params.filename, '> public/out/' + params.id + '.out'];
