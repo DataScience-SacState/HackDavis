@@ -1,5 +1,5 @@
-# Boiler-NodeExpress
-_Boilerplate for simple Node/Express Stack_
+# CouchCoder
+_Use Google Docs as your IDE
 
 ## Running
  - Install [NodeJS](https://github.com/HackAtSac/Boiler-NodeExpress.git)
