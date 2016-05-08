@@ -119,7 +119,7 @@ var lang = {
           return 'java';
         },
         arg: function (params) {
-          return [params.className || params.filename.substring(0, params.filename.length - 5)];
+          return [params.javaClass || params.filename.substring(0, params.filename.length - 5)];
         }
       }
     ],
