@@ -131,7 +131,8 @@ io.on('connection', function (socket) {
   socket.emit('update', 'test!');
   socket.on('compile', function (data) {
 
-    console.log('received compile request: ' + data);
+    console.log('received compile request:');
+    console.log(data);
 
     var UUID = data.id;
     data.language = lang[data.language];
