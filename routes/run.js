@@ -4,12 +4,23 @@ var uuid = require('uuid-v4');
 
 var spawn = require('child_process').spawn;
 
-var app = express();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
 var fs = require('fs');
+var https = require('https');
+var app = express();
 
-server.listen(47747);
+var options = {
+  key: fs.readFileSync('./file.pem'),
+  cert: fs.readFileSync('./file.crt'),
+  ca: fs.readFileSync('./csr.pem')
+};
+var serverPort = 8000;
+
+var server = https.createServer(options, app);
+var io = require('socket.io')(server);
+
+server.listen(serverPort, function() {
+  console.log('server up and running at %s port', serverPort);
+});
 
 var lang = {
   JavaScript: {
@@ -20,7 +31,7 @@ var lang = {
           return 'node';
         },
         arg: function (params) {
-          return [params.filename];
+          return [params.filename, '> public/out/' + params.id + '.out'];
         }
       }
     ],
@@ -95,7 +106,7 @@ var lang = {
 io.on('connection', function (socket) {
   socket.emit('update', 'test!');
   socket.on('compile', function (data) {
-    var UUID = uuid();
+    var UUID = data.id;
     data.language = lang[data.language];
     data.filename = 'scripts/' + UUID + data.language.suffix;
     //fs.mkdirSync('scripts');
@@ -111,7 +122,7 @@ io.on('connection', function (socket) {
 
         var child = spawn(cmd, arg);
         child.stdout.on('data', function (chunk) {
-          socket.emit('update', chunk.toString('utf8'));
+          socket.emit(UUID, {type: "msg", body: chunk.toString('utf8')});
         });
       }
     });
@@ -130,11 +141,34 @@ router.get('/', function(req, res, next) {
 });
 
 router.post('/', function(req, res){
-  if (req.body.user && req.body.language && req.body.input) {
-    console.log(req.body.language);
-    console.log(req.body.input);
-    res.end('yes!');
+  if (req.body.id && req.body.language && req.body.input) {
+    var data = req.body;
+
+    var UUID = data.id;
+    data.language = lang[data.language];
+    data.filename = 'scripts/' + UUID + data.language.suffix;
+    data.outfile = 'public/out/' + data.id + '.out';
+    //fs.mkdirSync('scripts');
+    fs.writeFile(data.filename, data.input, function (err) {
+      if (err) throw err;
+      console.log('The data was appended to file!');
+
+      var commands = data.language.cmds;
+      for (var i in commands) {
+        var cmd = commands[i].cmd(data);
+        var arg = commands[i].arg(data);
+        console.log(cmd + " " + arg);
+
+        var child = spawn(cmd, arg);
+        child.stdout.on('data', function (chunk) {
+          fs.appendFile(data.outfile, chunk.toString('utf8'), function (err) {
+          });
+          //socket.emit(UUID, {type: "msg", body: chunk.toString('utf8')});
+        });
+      }
+    });
   }
+  res.redirect("/testing.html");
 });
 
 module.exports = router;

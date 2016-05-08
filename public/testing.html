@@ -1,16 +1,49 @@
 <html>
 <head>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
 </head>
 <body>
-<pre style="word-wrap: break-word; white-space: pre-wrap;"></pre>
+<pre style="word-wrap: break-word; white-space: pre-wrap;" id="outpre"></pre>
+
+<form action="/run" method="post">
+    <input type="text" name="input">
+    <input type="text" name="id" value="test">
+    <input type="text" name="language">
+    <input type="submit">
+</form>
+
+<div id="out">
+    </div>
+
 <script>
-    var socket = io('http://localhost:47747');
-    socket.on('update', function (data) {
-        console.log(data);
-        socket.emit('my other event', {my: 'data'});
-    });
-    console.log('yo');
+/*    var URL_SERVER = 'https://localhost:8000';
+    var socket = io.connect(URL_SERVER);
+
+    function listenTo(runId) {
+        socket.on(runId, function (data) {
+            if (data.type == "clear") {
+                // Clear Terminal
+            } else if (data.type == "msg") {
+                // Add this to the Terminal
+                console.log(data.body);
+            }
+        });
+    }*/
+
+
+
+    function doPoll(){
+        $.get('/out/test2.out', function(data) {
+            $("#out").text(data);
+            setTimeout(doPoll,5000);
+        });
+    }
+    doPoll();
+
+
+
+console.log('yo');
 </script>
 </body>
 </html>
